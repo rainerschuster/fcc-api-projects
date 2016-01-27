@@ -6,12 +6,7 @@ var Searches = require('../models/searches.js');
 var google = require('googleapis');
 var customsearch = google.customsearch('v1');
 
-const CX = '016626633579237107839:fm1bnvegk0k';
-const API_KEY = 'AIzaSyBnMUNYZGcwXifzKSqWKs7hHu5PGtvwrjM';
-const SEARCH = 'INSERT A GOOGLE REQUEST HERE';
-
 function SearchController () {
-	
 
 	this.getLatestSearches = function (req, res) {
 		Searches
@@ -32,7 +27,7 @@ function SearchController () {
 		Searches
 			.create({ 'term': query, when: Date.now() }, function (err, result) {
 				if (err) { throw err; }
-				customsearch.cse.list({ cx: CX, q: query, auth: API_KEY, start: start }, function(err, resp) {
+				customsearch.cse.list({ cx: process.env.CX, q: query, auth: process.env.API_KEY, start: start }, function(err, resp) {
 				  if (err) {
 				    console.log('An error occured', err);
 				    return;
