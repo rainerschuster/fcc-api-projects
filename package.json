@@ -27,6 +27,7 @@
     "express": "^4.12.4",
     "express-session": "^1.11.3",
     "googleapis": "^2.1.7",
+    "mongo-mock-server": "^1.0.0",
     "mongoose": "^4.1.0",
     "multer": "^1.1.0",
     "passport": "^0.3.0",

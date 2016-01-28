@@ -1,11 +1,13 @@
 'use strict';
 
+var mymongo = require('mongo-mock-server');
 var express = require('express');
 var routes = require('./app/routes/index.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 
+var mongoapp = mymongo();
 var app = express();
 require('dotenv').load();
 require('./app/config/passport')(passport);
